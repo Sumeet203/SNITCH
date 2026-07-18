@@ -8,7 +8,7 @@ function validateRequest(req, res, next) {
   next();
 }
 
-export default validateRegisterUser = [
+export const validateRegisterUser = [
   body("email").isEmail().withMessage("Please provide a valid email address"),
   body("contact")
     .notEmpty()
@@ -21,8 +21,16 @@ export default validateRegisterUser = [
   body("fullname")
     .notEmpty()
     .withMessage("Fullname is required")
-    .length({ min: 3 })
+    .isLength({ min: 3 })
     .withMessage("Fullname must be at least 3 characters long"),
   body("isSeller").isBoolean().withMessage("isSeller must be boolean value"),
   validateRequest,
 ];
+
+export const validateLoginUser = [
+  body("email").isEmail().withMessage("Please provide a valid email address"),
+  body("password")
+    .isLength({ min: 6 })
+    .withMessage("Password must be at least 6 characters long"),
+    validateRequest,
+]
