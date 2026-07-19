@@ -2,6 +2,7 @@ import express from "express";
 import cookieParser from "cookie-parser"
 import morgan from "morgan"
 import authRouter from "./routes/auth.routes.js"
+import productRouter from "./routes/product.routes.js"
 import cors from "cors"
 import passport from "passport";
 import jwt from "jsonwebtoken"
@@ -37,5 +38,5 @@ passport.use(
 
 
 app.use("/api/auth",authRouter);
-
+app.use("/api/products",productRouter);
 export default app;
