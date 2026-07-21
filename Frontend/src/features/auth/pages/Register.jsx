@@ -28,8 +28,8 @@ const Register = () => {
             email: formData.email,
             contact: formData.contactNumber,
             password: formData.password,
-            isSeller: formData.isSeller,
             fullname: formData.fullName,
+            isSeller: formData.isSeller
 
         });
         navigate("/");
